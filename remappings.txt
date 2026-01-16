@@ -1,0 +1,7 @@
+@foundry-upgrades=lib/foundry-upgrades/src
+@core=src
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
+openzeppelin/proxy/transparent/=lib/foundry-upgrades/lib/openzeppelin-contracts/contracts/proxy/transparent/
+openzeppelin/proxy/ERC1967/=lib/foundry-upgrades/lib/openzeppelin-contracts/contracts/proxy/ERC1967/
+openzeppelin/proxy/beacon/=lib/foundry-upgrades/lib/openzeppelin-contracts/contracts/proxy/beacon/

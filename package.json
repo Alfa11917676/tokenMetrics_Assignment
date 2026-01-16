@@ -1,0 +1,43 @@
+{
+  "name": "tokenMetrics contracts",
+  "version": "1.0",
+  "description": "assingment for tokenMetrics",
+  "homepage": "https://tokenmetrics.com/",
+  "license": "MIT",
+  "author": "Arnab Ray",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "forge build",
+    "build:force": "forge build --force",
+    "coverage": "forge coverage",
+    "coverage:fork": "forge coverage --fork-url https://rpc.ankr.com/base/ab79dcfa483af255560a89d3ea080753ab2f1b9707483327db39071c88b01ca6 --fork-block-number 39415574",
+    "deploy:mainnetBase_all": "node script/l1Scripts/deployAll.js",
+    "test": "forge test --fork-url https://rpc.ankr.com/base/ab79dcfa483af255560a89d3ea080753ab2f1b9707483327db39071c88b01ca6 --fork-block-number 39415574",
+    "prettier": "npx prettier --write '{test,scripts,src,tasks}/{**/*,*}.{js,sol}'"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@openzeppelin/contracts-upgradeable": "^5.0.2",
+    "@openzeppelin/hardhat-upgrades": "^3.2.0",
+    "hardhat": "^2.22.6"
+  },
+  "dependencies": {
+    "@morpho-org/metamorpho": "^1.1.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "chai": "4.3.10",
+    "dotenv": "^16.6.1",
+    "ethers": "^6.13.1",
+    "forge-std": "^1.1.2",
+    "mocha": "^10.7.0",
+    "prettier": "2.8.8",
+    "prettier-plugin-solidity": "^1.0.0-rc.1",
+    "sort-package-json": "1.53.1",
+    "yarn": "^1.22.22"
+  }
+}
