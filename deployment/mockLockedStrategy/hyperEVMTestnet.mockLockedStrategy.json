@@ -1,0 +1,10 @@
+{
+    "name": "mockLockedStrategy",
+    "ContactAddress": "0xdAbEF64799558EF865672a3CbD18f54290139Eec",
+    "dependencies": {
+        "mockUSDC": "0x2ffd03d7A821070Ff9d30f25BA47fE3403572ef5",
+        "lockupDuration": 3600
+    },
+    "deployer": "0x18138248c2D3Df3fA031eAc79d1D046Ce00ADAF2",
+    "date": "2026-01-17T10:51:15.639Z"
+}

@@ -1,0 +1,12 @@
+{
+    "name": "multiStrategyVault",
+    "ContactAddress": "0x86aDf8664645871ce3522011a4390A784cB003D4",
+    "dependencies": {
+        "mockUSDC": "0x2ffd03d7A821070Ff9d30f25BA47fE3403572ef5",
+        "accessController": "0x6C9a0816E68Ce23BDcFb68f1Ee604Dd1E8527BbB",
+        "coreWriter": "0x2c330a7652850a6691E377Cc94942910060F897f",
+        "pauseController": "0x2Bc0459357617ac5B5a6F563f2c25ec67Ec03c57"
+    },
+    "deployer": "0x18138248c2D3Df3fA031eAc79d1D046Ce00ADAF2",
+    "date": "2026-01-17T10:51:29.672Z"
+}
