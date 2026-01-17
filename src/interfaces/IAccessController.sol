@@ -19,9 +19,8 @@ interface IAccessController {
     /// @notice Struct to initialize role setters during contract deployment.
     struct InitRoleSetter {
         address admin;
-        address proxyAdmin;
-        address timelock;
         address pauser;
+        address manager;
         address unpauser;
         address dev;
     }

@@ -1,0 +1,9 @@
+{
+    "name": "pauseController",
+    "ContactAddress": "0x2Bc0459357617ac5B5a6F563f2c25ec67Ec03c57",
+    "dependencies": {
+        "accessController": "0x6C9a0816E68Ce23BDcFb68f1Ee604Dd1E8527BbB"
+    },
+    "deployer": "0x18138248c2D3Df3fA031eAc79d1D046Ce00ADAF2",
+    "date": "2026-01-17T10:51:23.480Z"
+}

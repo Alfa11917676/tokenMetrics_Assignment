@@ -1,0 +1,10 @@
+{
+    "name": "accessController",
+    "ContactAddress": "0x6C9a0816E68Ce23BDcFb68f1Ee604Dd1E8527BbB",
+    "dependencies": {
+        "initialDelay": 3600,
+        "initialDefaultAdmin": "0x18138248c2D3Df3fA031eAc79d1D046Ce00ADAF2"
+    },
+    "deployer": "0x18138248c2D3Df3fA031eAc79d1D046Ce00ADAF2",
+    "date": "2026-01-17T10:51:21.592Z"
+}

@@ -30,18 +30,16 @@ contract AccessController is IAccessController, AccessControlDefaultAdminRules {
 
         if (
             initRoleSetter.dev == address(0x0) ||
-            initRoleSetter.proxyAdmin == address(0x0) ||
             initRoleSetter.pauser == address(0x0) ||
             initRoleSetter.unpauser == address(0x0) ||
-            initRoleSetter.timelock == address(0x0) ||
             initRoleSetter.admin == address(0x0)
         ) revert InvalidInitRoleSetter();
 
         super.grantRole(Roles.DEV_ROLE, initRoleSetter.dev);
+        super.grantRole(Roles.MANAGER_ROLE, initRoleSetter.manager);
         super.grantRole(Roles.ADMIN_ROLE, initRoleSetter.admin);
         super.grantRole(Roles.PAUSER_ROLE, initRoleSetter.pauser);
         super.grantRole(Roles.UNPAUSER_ROLE, initRoleSetter.unpauser);
-        super.grantRole(Roles.TIMELOCK_ROLE, initRoleSetter.timelock);
 
         initFlag = true;
     }

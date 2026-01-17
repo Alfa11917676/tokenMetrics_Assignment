@@ -5,6 +5,7 @@ import {ERC4626} from "@openzeppelin/contracts/token/ERC20/extensions/ERC4626.so
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {BaseStrategy as IBaseStrategy} from "../interfaces/IBaseStrategy.sol";
+import "../mockUSDC.sol";
 
 /**
  * @title MockERC4626Strategy
@@ -33,7 +34,14 @@ contract MockERC4626Strategy is ERC4626, IBaseStrategy {
      * @param assets Amount of assets to withdraw
      */
     function withdrawToken(uint256 assets) external virtual override {
-        withdraw(assets, msg.sender, msg.sender);
+        // Limit withdrawal to actual USDC balance (not virtual yield)
+        uint256 actualBalance = IERC20(asset()).balanceOf(address(this));
+        if (assets > actualBalance) {
+            assets = actualBalance;
+        }
+        if (assets > 0) {
+            withdraw(assets, msg.sender, msg.sender);
+        }
     }
 
     /**
@@ -83,7 +91,13 @@ contract MockERC4626Strategy is ERC4626, IBaseStrategy {
      * @param percentage Percentage with 2 decimal precision (e.g., 1050 = 10.50%, 1000 = 10.00%, 525 = 5.25%)
      */
     function mockYield(uint256 percentage) external {
+        // mint the usdc of the amount of the percentage to the strategy
+        mockUSDC(asset()).mint(address(this), (IERC20(asset()).balanceOf(address(this)) * percentage) / 10_000);
         _virtualYieldPercent += percentage;
+    } 
+
+    function convertToAssets(uint256 shares) public override view virtual  returns (uint256){
+        return IERC20(asset()).balanceOf(address(this));
     }
 
     /**

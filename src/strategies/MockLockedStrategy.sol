@@ -3,6 +3,7 @@ pragma solidity ^0.8.24;
 
 import "./MockERC4626Strategy.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "forge-std/console.sol";
 
 /**
  * @title MockLockedStrategy
@@ -12,7 +13,7 @@ import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 contract MockLockedStrategy is MockERC4626Strategy {
     uint256 public unlockTimestamp;
     uint256 public nextRequestId;
-
+    uint256 private _virtualYieldPercent;
     struct WithdrawRequest {
         uint256 requestId;
         address receiver;
@@ -21,7 +22,7 @@ contract MockLockedStrategy is MockERC4626Strategy {
         bool claimed;
     }
     mapping(uint256 => WithdrawRequest) public withdrawRequests;
-    mapping(address => uint256) private withdrawalsIds;
+    mapping(address => uint256) public withdrawalsIds;
 
     constructor(IERC20 asset_, uint256 lockupDuration_) MockERC4626Strategy(asset_) {
         unlockTimestamp = lockupDuration_;
@@ -46,7 +47,7 @@ contract MockLockedStrategy is MockERC4626Strategy {
 
         withdrawRequests[requestId] = WithdrawRequest({
             requestId: requestId,
-            expectedAmount: assets + (assets * 2) / 100,
+            expectedAmount: assets,
             receiver: msg.sender,
             unlockTimestamp: block.timestamp + unlockTimestamp,
             claimed: false
@@ -68,7 +69,11 @@ contract MockLockedStrategy is MockERC4626Strategy {
         return request.expectedAmount;
     }
 
-    // function claimWithdraw(uint256 requestId) external {
+    function convertToAssets(uint256 shares) public override view virtual returns (uint256) {
+        return IERC20(asset()).balanceOf(address(this));
+    }
+
+
 
     function getWithdrawData(uint256 requestId) external view returns (uint256, address, uint256, uint256, bool) {
         WithdrawRequest storage request = withdrawRequests[requestId];
