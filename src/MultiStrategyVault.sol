@@ -201,7 +201,7 @@ contract MultiStrategyVault is ERC4626, IMultiStrategyVault {
         _burn(msg.sender, shares);
         
         // Get available liquid USDC
-        uint256 available = IERC20(asset()).balanceOf(address(this));
+        uint256 available = IERC20(asset()).balanceOf(address(this)) - totalAssetsToRedeem;
         uint256 amountToTransfer;
         
         if (available >= expectedAssets) {
