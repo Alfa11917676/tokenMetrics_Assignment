@@ -13,9 +13,6 @@ library Roles {
     /// @notice Role identifier for TokenMetrics Dev Role
     bytes32 public constant DEV_ROLE = keccak256("DEV_ROLE");
 
-    /// @notice Role identifier for timelock contract.
-    bytes32 public constant TIMELOCK_ROLE = keccak256("TIMELOCK_ROLE");
-
     /// @notice Role identifier for pausers.
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 

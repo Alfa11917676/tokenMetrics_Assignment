@@ -10,23 +10,11 @@
     error AuthenticationFailed();
 
     // Storage structures
-    struct StrategyConfig {
-        IBaseStrategy strategy;
-        uint256 allocationBps; // Basis points (0-5000 max per strategy)
-    }
-
+    // Structs moved to VaultStructs library to avoid conflicts
     struct WithdrawRequest {
         uint256 requestId;
         uint256 expectedAmount;
         bool claimed;
-    }
-
-    struct WithdrawBatch {
-        uint256 withdrawRequestId;
-        uint256 totalAssetsToWithdrawFromStrategy;
-        uint256 withdrawalLeftToBeProcessed;
-        uint256 expectedUnlockTimestamp;
-        bool claimEnabled;
     }
 
      // Events
