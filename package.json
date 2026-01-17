@@ -13,10 +13,14 @@
     "build": "forge build",
     "build:force": "forge build --force",
     "coverage": "forge coverage",
-    "coverage:fork": "forge coverage --fork-url https://rpc.ankr.com/base/ab79dcfa483af255560a89d3ea080753ab2f1b9707483327db39071c88b01ca6 --fork-block-number 39415574",
+    "coverage:fork": "forge coverage --fork-url https://rpc.ankr.com/base/ab79dcfa483af255560a89d3ea080753ab2f1b9707483327db39071c88b01ca6 --fork-block-number 494717334",
     "deploy:mainnetBase_all": "node script/l1Scripts/deployAll.js",
-    "test": "forge test --fork-url https://rpc.ankr.com/base/ab79dcfa483af255560a89d3ea080753ab2f1b9707483327db39071c88b01ca6 --fork-block-number 39415574",
-    "prettier": "npx prettier --write '{test,scripts,src,tasks}/{**/*,*}.{js,sol}'"
+    "test": "forge test",
+    "prettier": "npx prettier --write '{test,scripts,src,tasks}/{**/*,*}.{js,sol}'",
+    "deploy:interact": "DEBUG=tokenMetrics:* npx hardhat run script/interact.js --network hyperEVMTestnet",
+    "deploy:setup": "DEBUG=tokenMetrics:* npx hardhat run script/setup.js --network hyperEVMTestnet",
+    "deploy:setupAccessController": "DEBUG=tokenMetrics:* npx hardhat run script/setupAccessController.js --network hyperEVMTestnet",
+    "deploy:deployment": "DEBUG=tokenMetrics:* npx hardhat run script/deployment.js --network hyperEVMTestnet"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ethers": "^3.0.0",
